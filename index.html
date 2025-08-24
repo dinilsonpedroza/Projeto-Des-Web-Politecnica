@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Projeto Desenvolvimento Web</title>
+  <style> /* Definindo os estilos com CSS*/
+    * { /* Usamos aqui o seletor universal fixando um padrão para todos os elementos*/
+      margin: 0; /* Sem margem por padrão*/
+      padding: 0; /*Padding zero por padrão*/
+      box-sizing: border-box; /* Manter o conteúdo nas margens de uma página*/
+      font-family: 'Lato', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body { /* O seletor aqui é o conteúdo principal da página (body). Definimos as formatações desse "body"*/
+      background-color: #00a8ff;
+      margin: 0;
+      padding: 0;
+      padding-top: 80px; /* compensa o header fixo */
+    }
+
+    header { /* O seletor aqui é barra no topo a página*/
+      background-color: #2c3e50;
+      color: white;
+      position: fixed; /* Fixando a barra na parte superior*/
+      width: 100%; /* A barra ocupa toda extensão*/
+      top: 0; /* Não há espaço entre a barra e o início da tela*/
+      z-index: 10000; /* Um valor alto aqui impede que a barra seja coberta por algum elemento*/
+      padding: 20px 0;
+    }
+
+    nav { /* Aqui vamos tratar do processo de navegação (nav) e dos links (a)*/
+      text-align: center; /* Estrutura de navegação no centro*/
+    }
+
+    nav a { /* Aplicando formatações aos links dentro do nav*/
+      color: white; /* Cor branca para os lins*/
+      text-decoration: none; /* Links sem linha embairo das palavras*/
+      margin: 0 15px; /* Espaçamento entre os links horizontal (0) e de 15 pix*/
+      font-weight: bold; /* Grossura das letras dos links */
+      cursor: pointer; /* Quando passamos o mouse pelo link, vira uma mãozinha, deixando evidente que se trata de um link*/
+    }
+
+    nav a:hover { 
+      text-decoration: underline;
+    } /* Determinamos uma linha quando o mouse passa pelo link */
+
+    section { /* Aqui formatamos a seção de conteúdos*/
+      padding: 40px; /* Criando um espaço interno (topo, inferior e laterais de 40 px)*/
+      border-bottom: 1px solid #ccc; /* Uma linha cinza claro entre os conteúdos*/
+      scroll-margin-top: 100px; /* Aqui evitamos que o header cubra os títulos */
+    }
+
+    h2 {
+      color: #6b0404; /* Definindo uma cor para os títulos das seções*/
+    }
+
+    form label { /* Formatando a parte de contato, que deve ser preenchida por quem estiver vendo o site*/
+      display: block; /* Assim garantimos que os espaço a ser preenchido fique embaixo do seu título (label)*/
+      margin-top: 10px; /* Espaço entre os nomes dos labels */
+    }
+
+    form input, form textarea { /* Definindo forma para as "linhas" (input) e "texto maior" (textarea)*/
+      width: 100%; /* Ocupar todo o espaço destinado aos labels*/
+      padding: 8px; /* Com esse padding, evitamos que os textos fique colado entre si*/
+      margin-top: 5px; /*Definindo um espaço entre o label e o campo a ser preenchido*/
+      max-width: 400px; /* Definindo um espaço máximo para os labels*/
+      font-family: inherit;
+      font-size: 14px; /* tipo de letra e seu tamanho*/
+    }
+
+    form textarea { /* Definimos forma para o texto maior, de mensagem (Contato) */
+      height: 150px;
+    }
+
+    form button { /* Aqui definimos a forma para o botão de envio do formulário*/
+      margin-top: 15px; /* Espaço acima do botão*/
+      padding: 10px 20px; /* Tamanho do botão */
+      background-color: #03095f; /* Cor do botão*/
+      color: white; /* Cor do texto do botão*/
+      border: none; /* Sem borda no botão*/
+      cursor: pointer; /* O cursor vira uma mãozinha*/
+    }
+
+    form button:hover {
+      background-color: #084aad; /* hover do botão: azul claro*/
+    }
+
+    #mensagem-inicial { /* Aqui estamos criando uma mensagem inicial para o site*/
+      height: 100vh; /* A mensagem deve ocupar toda a página*/
+      display: flex; /* Conforme visto em aula, permite adequar o conteúdo de forma flexível*/
+      flex-direction: column; /* Organizamos os conteúdos de cima para baixo*/
+      justify-content: center; /* Conteúdo ou mensagem fica no centro*/
+      align-items: center; /* Letras centralizadas*/
+      background-color: #00a8ff; /* Cor do fundo da mensagem inicial*/
+      color: white; /* Cor do texto*/
+      text-align: center; /* Texto centralizado*/
+    }
+
+    #mensagem-inicial h1 { /* Definindo a mensagem inicial como um título*/
+      font-size: 3em; /* Tamanho do texto*/
+      margin-bottom: 20px; /* Separando o texto do botão de entrar que vem a seguir*/
+    }
+
+    #sobre, #formacao, #portfolio, #contato {
+      display: none; /* escondidas até clicar em Entrar */
+    } /* Aqui os id acima não aparecem na página inicial*/
+
+    section p {
+      font-weight: 600; /* Deixando as letras dentro dos <p> mais grossas*/
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <!-- Vamos definir o conteúdo a ser navegado -->
+    <nav>
+      <a href="#" id="link-inicio">Início</a>
+      <a href="#sobre">Sobre Mim</a>
+      <a href="#formacao">Formação Acadêmica</a>
+      <a href="#portfolio">Portfólio</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+  <!-- usando este modo de comentário. Não funcionou mais o outro-->
+  <!-- Mensagem inicial -->
+  <div id="mensagem-inicial">
+    <h1>Olá pessoal, esse é meu trabalho de Desenvolvimento Web</h1>
+    <button id="entrar">Entrar</button> <!-- Acrescentando um botão para entrar no conteúdo-->
+  </div>
+
+  <!-- As seções com minhas informações -->
+  <section id="sobre">
+    <h2>Sobre Mim</h2>
+    <p>Olá! Meu nome é Dinilson Jr. Estou estudando Ciência de Dados na Uninter.</p>
+  </section>
+
+  <section id="formacao">
+    <h2>Formação Acadêmica</h2>
+    <p>Sou doutor em Economia.</p>
+  </section>
+
+  <section id="portfolio">
+    <h2>Portfólio & Carreira</h2>
+    <p>Sou Servidor Público e Professor Universitário. Aqui, quando os tiver, os prejetos que desenvolverei.</p>
+  </section>
+  <!-- Seção de contato-->
+  <section id="contato">
+    <h2>Contato</h2>
+    <form>
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome">
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email">
+
+      <label for="telefone">Telefone:</label>
+      <input type="tel" id="telefone" name="telefone">
+
+      <label for="mensagem">Mensagem:</label>
+      <textarea id="mensagem" name="mensagem"></textarea>
+      <br>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <!-- Precisei usar Java Script (JS) para fazer surgir as seções -->
+  <script> /*"script" significa a tag de inserção de operaçãoes com JS no html. Com "cont" declaramos variáveis imutáveis*/
+  /* btn é botão para entrar, pegando o elemento, no caso o botão, por sua id*/
+    const btnEntrar = document.getElementById('entrar'); /* Declarando o botão de entrar do html como btnEntrar no JS*/
+    const mensagemInicial = document.getElementById('mensagem-inicial'); /*Declarando ou definindo o id "mensagem-inicial" do html como "mensagemInicial" no JS*/
+    const secoes = document.querySelectorAll('section'); /* Estamos definindo com JS a variável "secoes"= a id "section"*/
+    const linkInicio = document.getElementById('link-inicio'); /* Definindo o id "link-inicio" do html como "linkInicio" do JS*/
+  
+    // Definindo o que acontece quando clicar em "Entrar"
+    // 
+    btnEntrar.addEventListener('click', () => { /* Estamos chamando a atenção (mandando ele "ouvir") do navegador para as instruções seguintes
+    /*A ação especificada acima é o clicar de um botão. O () vazio sinaliza que não serão inseridos parâmetros. A "seta" sinaliza a ação a ser executada*/
+      mensagemInicial.style.display = 'none'; /* Clicando no botão entrar, a mensagem inicial some*/
+      secoes.forEach(sec => sec.style.display = 'block'); /* Clicando no botão entrar, todas as seções aparecem (em bloco)*/
+      window.scrollTo({ top: 0, behavior: 'smooth' }); /* Qeremos aqui uma "rolagem" de forma suave para o topo da página*/
+    });
+
+    // Definindo o que acontece quando clicar em "Início" da barra superior da página depois de entrar.
+    linkInicio.addEventListener('click', (e) => { /* Definimos aqui a ação que acontece quando clicamos ("click") no link "Início". (e) apresenta o evento a ser exposto*/
+      e.preventDefault(); /* Uma vez voltando à pagina inicial, impedimos aqui que os outros botões tenham resultado. Ou seja, é preciso clicar em entrar de novo*/
+      mensagemInicial.style.display = 'flex'; /* Aqui reapresentamos a mensagem inicial na modalidade "flex", que se adapta com facilidade ao espaço da página*/
+      secoes.forEach(sec => sec.style.display = 'none'); /* Voltamos a "esconder" as seções de novo*/
+      window.scrollTo({ top: 0, behavior: 'smooth' }); /* Ver acima*/
+    });
+  </script>
+</body>
+</html>
